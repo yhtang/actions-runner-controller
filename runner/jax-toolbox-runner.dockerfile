@@ -23,9 +23,12 @@ RUN apt-get update -y \
     git-lfs \
     iptables \
     jq \
+    openssh-client \
     software-properties-common \
     sudo \
     unzip \
+    zstd \
+    pigz \
     zip \
     && rm -rf /var/lib/apt/lists/*
 
@@ -98,7 +101,7 @@ RUN distribution=$(. /etc/os-release;echo $ID$VERSION_ID) \
     && apt-get update \
     && apt-get install -y nvidia-container-toolkit \
     && mkdir -p /etc/docker \
-    && nvidia-ctk runtime configure --runtime=docker --set-as-default \
+    && nvidia-ctk runtime configure --runtime=docker \
     && rm -rf /var/lib/apt/lists/*
 
 # We place the scripts in `/usr/bin` so that users who extend this image can
