@@ -24,6 +24,7 @@ RUN apt-get update -y \
     iptables \
     jq \
     openssh-client \
+    rsync \
     software-properties-common \
     sudo \
     unzip \
